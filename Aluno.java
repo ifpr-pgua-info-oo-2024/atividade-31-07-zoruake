@@ -1,81 +1,29 @@
-import java.util.Date;
+import java.text.ParseException;
 
-public class Aluno {
-
-    private String nome;
+public class Aluno extends Pessoa{
     private String nivel;
-    private Date data_nascimento;
-    private String genero;
-    private double altura;
-    private double peso;
 
-    public Aluno(String nome, String nivel, Date data_nascimento, String genero, double altura, double peso) {
 
-        this.nome = nome;
-        this.nivel = nivel;
-        this.data_nascimento = data_nascimento;
-        this.genero = genero;
-        this.altura = altura;
-        this.peso = peso;
+public Aluno(String nome, String data_nascimento, String genero, double altura, double peso, String nivel) throws ParseException{
+    super(nome, data_nascimento, genero, altura, peso);
+    this.nivel = nivel;
 
-    }
+}
 
-    public Aluno(String nome, String nivel, Date data_nascimento) {
-        this(nome, nivel, data_nascimento, "", 0, 0);
-    }
+public String getNivel(){
+    return nivel;
+}
 
-    public String getNome() {
-        return nome;
-    }
+public void setNivel (String nivel){
+    this.nivel = nivel;
+}
 
-    public String getNivel() {
-        return nivel;
-    }
+@Override
+public String toString() {
+    return super.toString() + ", nivel=" + nivel;
+}
 
-    public Date getData_nascimento() {
-        return data_nascimento;
-    }
 
-    public String getGenero() {
-        return genero;
-    }
 
-    public double getAltura() {
-        return altura;
-    }
-
-    public double getPeso() {
-        return peso;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setNivel(String nivel) {
-        this.nivel = nivel;
-    }
-
-    public void setData_nascimento(Date data_nascimento) {
-        this.data_nascimento = data_nascimento;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-
-    @Override
-    public String toString() {
-        return "Aluno [nome=" + nome + ", nivel=" + nivel + ", data_nascimento=" + data_nascimento + ", genero="
-                + genero + ", altura=" + altura + ", peso=" + peso + "]";
-    }
 
 }
